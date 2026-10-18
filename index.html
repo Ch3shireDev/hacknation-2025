@@ -3,55 +3,181 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hacknation 2025</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Hacknation 2025 - zadania hackatonu rządowego w Bydgoszczy</title>
+  <meta name="description" content="Lista 15 zadań z Hacknation 2025, rządowego hackatonu w Bydgoszczy. Pełne opisy wyzwań do pobrania w formacie PDF.">
+  <link rel="canonical" href="https://ch3shiredev.github.io/hacknation-2025/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b5ed7">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Hacknation 2025">
+  <meta property="og:title" content="Hacknation 2025 – zadania hackatonu rządowego w Bydgoszczy">
+  <meta property="og:description" content="Lista 15 zadań z Hacknation 2025, rządowego hackatonu w Bydgoszczy. Opisy wyzwań w PDF.">
+  <meta property="og:url" content="https://ch3shiredev.github.io/hacknation-2025/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hacknation 2025 – zadania hackatonu rządowego">
+  <meta name="twitter:description" content="Lista 15 zadań z Hacknation 2025 w Bydgoszczy. Opisy wyzwań w PDF.">
+
   <script>
-    // Ustaw motyw przed renderem, żeby nie mrugało
+    // Motyw przed renderem, żeby nie mrugało
     (function () {
       var saved = null;
       try { saved = localStorage.getItem('theme'); } catch (e) {}
       var system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-bs-theme', saved || system);
+      document.documentElement.setAttribute('data-theme', saved || system);
     })();
   </script>
+
   <style>
-    .list-group-item { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9rem; }
+    :root {
+      --bg: #f4f5f7; --card: #ffffff; --text: #1d2125; --muted: #5c636a;
+      --border: #dfe2e6; --accent: #0b5ed7; --hover: #eef2f7; --badge: #e9ecef;
+      color-scheme: light;
+    }
+    :root[data-theme="dark"] {
+      --bg: #16181b; --card: #212529; --text: #e9ecef; --muted: #a3abb3;
+      --border: #343a40; --accent: #6ea8fe; --hover: #2b3035; --badge: #343a40;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+    .topbar { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
+    .switch { display: inline-flex; align-items: center; gap: .6rem; font-size: .9rem; color: var(--muted); cursor: pointer; min-height: 44px; }
+    .switch input { appearance: none; width: 2.75rem; height: 1.5rem; border-radius: 1rem; background: var(--badge); border: 1px solid var(--border); position: relative; cursor: pointer; margin: 0; transition: background .2s; }
+    .switch input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: var(--muted); transition: transform .2s, background .2s; }
+    .switch input:checked { background: var(--accent); border-color: var(--accent); }
+    .switch input:checked::after { transform: translateX(1.2rem); background: #fff; }
+    .switch input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    h1 { font-size: clamp(1.9rem, 5vw, 2.5rem); font-weight: 650; line-height: 1.2; margin: 0 0 .75rem; }
+    h2 { font-size: 1.35rem; font-weight: 600; margin: 2.5rem 0 1rem; }
+    h3 { font-size: 1.05rem; font-weight: 600; margin: 1.25rem 0 .35rem; }
+    p { margin: 0 0 1rem; }
+    .lead { color: var(--muted); font-size: 1.05rem; }
+    .tasks { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--border); border-radius: .6rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+    .tasks li + li { border-top: 1px solid var(--border); }
+    .tasks a {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      min-height: 48px; padding: .8rem 1rem; color: var(--text); text-decoration: none;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .92rem;
+      word-break: break-word;
+    }
+    .tasks a:hover { background: var(--hover); }
+    .tasks a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+    .badge { flex-shrink: 0; font-family: system-ui, sans-serif; font-size: .72rem; font-weight: 600; padding: .2rem .5rem; border-radius: .35rem; background: var(--badge); color: var(--muted); border: 1px solid var(--border); }
+    .faq p { color: var(--muted); }
+    footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .85rem; }
+    a { color: var(--accent); }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Hacknation 2025 – zadania hackatonu rządowego w Bydgoszczy",
+    "description": "Lista 15 zadań z Hacknation 2025, rządowego hackatonu w Bydgoszczy. Pełne opisy wyzwań do pobrania w formacie PDF.",
+    "url": "https://ch3shiredev.github.io/hacknation-2025/",
+    "inLanguage": "pl",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 15,
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1,  "name": "AI_W_SLUZBIE_DECYZJI",            "url": "https://ch3shiredev.github.io/hacknation-2025/AI_W_SLUZBIE_DECYZJI.pdf"},
+        {"@type": "ListItem", "position": 2,  "name": "BYDGOSZCZ–SCIEZKI_PAMIECI_2_0",   "url": "https://ch3shiredev.github.io/hacknation-2025/BYDGOSZCZ%E2%80%93SCIEZKI_PAMIECI_2_0.pdf"},
+        {"@type": "ListItem", "position": 3,  "name": "CHMURA_POD_KONTROLA",             "url": "https://ch3shiredev.github.io/hacknation-2025/CHMURA_POD_KONTROLA.pdf"},
+        {"@type": "ListItem", "position": 4,  "name": "DANE_BEZ_TWARZY",                 "url": "https://ch3shiredev.github.io/hacknation-2025/DANE_BEZ_TWARZY.pdf"},
+        {"@type": "ListItem", "position": 5,  "name": "GAMING_LOS_DECYDUJE",             "url": "https://ch3shiredev.github.io/hacknation-2025/GAMING_LOS_DECYDUJE.pdf"},
+        {"@type": "ListItem", "position": 6,  "name": "INDEKS_BRANZ",                    "url": "https://ch3shiredev.github.io/hacknation-2025/INDEKS_BRANZ.pdf"},
+        {"@type": "ListItem", "position": 7,  "name": "KONTROLA_ZAKLADOW_WZAJEMNYCH",    "url": "https://ch3shiredev.github.io/hacknation-2025/KONTROLA_ZAKLADOW_WZAJEMNYCH.pdf"},
+        {"@type": "ListItem", "position": 8,  "name": "ODNALEZIONE_ZGUBY",               "url": "https://ch3shiredev.github.io/hacknation-2025/ODNALEZIONE_ZGUBY.pdf"},
+        {"@type": "ListItem", "position": 9,  "name": "PRAWDA_W_SIECI",                  "url": "https://ch3shiredev.github.io/hacknation-2025/PRAWDA_W_SIECI.pdf"},
+        {"@type": "ListItem", "position": 10, "name": "SCENARIUSZE_JUTRA",               "url": "https://ch3shiredev.github.io/hacknation-2025/SCENARIUSZE_JUTRA.pdf"},
+        {"@type": "ListItem", "position": 11, "name": "SCIEZKA_PRAWA",                   "url": "https://ch3shiredev.github.io/hacknation-2025/SCIEZKA_PRAWA.pdf"},
+        {"@type": "ListItem", "position": 12, "name": "WYSZUKIWARKA_ANOMALII",           "url": "https://ch3shiredev.github.io/hacknation-2025/WYSZUKIWARKA_ANOMALII.pdf"},
+        {"@type": "ListItem", "position": 13, "name": "ZGRANY_BUDZET",                   "url": "https://ch3shiredev.github.io/hacknation-2025/ZGRANY_BUDZET.pdf"},
+        {"@type": "ListItem", "position": 14, "name": "ZOBACZ_TO-CZEGO_NIE_WIDAC",       "url": "https://ch3shiredev.github.io/hacknation-2025/ZOBACZ_TO-CZEGO_NIE_WIDAC.pdf"},
+        {"@type": "ListItem", "position": 15, "name": "ZUS_ACCIDENT_NOTIFICATION_TOOL",  "url": "https://ch3shiredev.github.io/hacknation-2025/ZUS_ACCIDENT_NOTIFICATION_TOOL.pdf"}
+      ]
+    }
+  }
+  </script>
 </head>
-<body class="bg-body-tertiary">
-  <main class="container py-5" style="max-width: 720px;">
-    <div class="d-flex justify-content-end mb-3">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="themeSwitch">
-        <label class="form-check-label small text-secondary" for="themeSwitch">Tryb ciemny</label>
-      </div>
+<body>
+  <main class="container">
+    <div class="topbar">
+      <label class="switch" for="themeSwitch">
+        <input type="checkbox" role="switch" id="themeSwitch">
+        Tryb ciemny
+      </label>
     </div>
 
-    <header class="mb-4">
-      <h1 id="hacknation-2025" class="fw-semibold mb-2">Hacknation 2025</h1>
-      <p class="text-secondary mb-0">
-        Hacknation to coroczny hackaton rządowy urządzany w listopadzie, w Bydgoszczy.
-        Poniżej lista zadań z edycji 2025.
+    <header>
+      <h1 id="hacknation-2025">Hacknation 2025</h1>
+      <p class="lead">
+        Hacknation to coroczny hackaton rządowy urządzany w listopadzie w Bydgoszczy.
+        Poniżej znajdziesz komplet zadań z edycji 2025 – każde z pełnym opisem w pliku PDF.
       </p>
     </header>
 
-    <div class="list-group shadow-sm">
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="AI_W_SLUZBIE_DECYZJI.pdf">AI_W_SLUZBIE_DECYZJI<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="BYDGOSZCZ–SCIEZKI_PAMIECI_2_0.pdf">BYDGOSZCZ–SCIEZKI_PAMIECI_2_0<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="CHMURA_POD_KONTROLA.pdf">CHMURA_POD_KONTROLA<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="DANE_BEZ_TWARZY.pdf">DANE_BEZ_TWARZY<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="GAMING_LOS_DECYDUJE.pdf">GAMING_LOS_DECYDUJE<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="INDEKS_BRANZ.pdf">INDEKS_BRANZ<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="KONTROLA_ZAKLADOW_WZAJEMNYCH.pdf">KONTROLA_ZAKLADOW_WZAJEMNYCH<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="ODNALEZIONE_ZGUBY.pdf">ODNALEZIONE_ZGUBY<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="PRAWDA_W_SIECI.pdf">PRAWDA_W_SIECI<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="SCENARIUSZE_JUTRA.pdf">SCENARIUSZE_JUTRA<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="SCIEZKA_PRAWA.pdf">SCIEZKA_PRAWA<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="WYSZUKIWARKA_ANOMALII.pdf">WYSZUKIWARKA_ANOMALII<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="ZGRANY_BUDZET.pdf">ZGRANY_BUDZET<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="ZOBACZ_TO-CZEGO_NIE_WIDAC.pdf">ZOBACZ_TO-CZEGO_NIE_WIDAC<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="ZUS_ACCIDENT_NOTIFICATION_TOOL.pdf">ZUS_ACCIDENT_NOTIFICATION_TOOL<span class="badge bg-body-secondary text-body-secondary border">PDF</span></a>
-    </div>
+    <section aria-labelledby="zadania">
+      <h2 id="zadania">Lista zadań Hacknation 2025</h2>
+      <ul class="tasks">
+        <li><a href="AI_W_SLUZBIE_DECYZJI.pdf" type="application/pdf">AI_W_SLUZBIE_DECYZJI<span class="badge">PDF</span></a></li>
+        <li><a href="BYDGOSZCZ%E2%80%93SCIEZKI_PAMIECI_2_0.pdf" type="application/pdf">BYDGOSZCZ–SCIEZKI_PAMIECI_2_0<span class="badge">PDF</span></a></li>
+        <li><a href="CHMURA_POD_KONTROLA.pdf" type="application/pdf">CHMURA_POD_KONTROLA<span class="badge">PDF</span></a></li>
+        <li><a href="DANE_BEZ_TWARZY.pdf" type="application/pdf">DANE_BEZ_TWARZY<span class="badge">PDF</span></a></li>
+        <li><a href="GAMING_LOS_DECYDUJE.pdf" type="application/pdf">GAMING_LOS_DECYDUJE<span class="badge">PDF</span></a></li>
+        <li><a href="INDEKS_BRANZ.pdf" type="application/pdf">INDEKS_BRANZ<span class="badge">PDF</span></a></li>
+        <li><a href="KONTROLA_ZAKLADOW_WZAJEMNYCH.pdf" type="application/pdf">KONTROLA_ZAKLADOW_WZAJEMNYCH<span class="badge">PDF</span></a></li>
+        <li><a href="ODNALEZIONE_ZGUBY.pdf" type="application/pdf">ODNALEZIONE_ZGUBY<span class="badge">PDF</span></a></li>
+        <li><a href="PRAWDA_W_SIECI.pdf" type="application/pdf">PRAWDA_W_SIECI<span class="badge">PDF</span></a></li>
+        <li><a href="SCENARIUSZE_JUTRA.pdf" type="application/pdf">SCENARIUSZE_JUTRA<span class="badge">PDF</span></a></li>
+        <li><a href="SCIEZKA_PRAWA.pdf" type="application/pdf">SCIEZKA_PRAWA<span class="badge">PDF</span></a></li>
+        <li><a href="WYSZUKIWARKA_ANOMALII.pdf" type="application/pdf">WYSZUKIWARKA_ANOMALII<span class="badge">PDF</span></a></li>
+        <li><a href="ZGRANY_BUDZET.pdf" type="application/pdf">ZGRANY_BUDZET<span class="badge">PDF</span></a></li>
+        <li><a href="ZOBACZ_TO-CZEGO_NIE_WIDAC.pdf" type="application/pdf">ZOBACZ_TO-CZEGO_NIE_WIDAC<span class="badge">PDF</span></a></li>
+        <li><a href="ZUS_ACCIDENT_NOTIFICATION_TOOL.pdf" type="application/pdf">ZUS_ACCIDENT_NOTIFICATION_TOOL<span class="badge">PDF</span></a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="o-hackatonie">
+      <h2 id="o-hackatonie">O hackatonie</h2>
+      <p>
+        Hacknation to hackaton organizowany przez administrację rządową. Zespoły dostają konkretne
+        wyzwania z obszaru państwa i usług publicznych, a ich zadaniem jest zbudowanie działającego
+        prototypu rozwiązania w ograniczonym czasie. Wydarzenie odbywa się co roku w listopadzie
+        w Bydgoszczy.
+      </p>
+      <p>
+        Edycja 2025 obejmowała 15 zadań. Każde z nich ma osobny dokument opisujący problem,
+        kontekst i oczekiwany rezultat – wystarczy kliknąć nazwę zadania na liście powyżej.
+      </p>
+    </section>
+
+    <section class="faq" aria-labelledby="faq">
+      <h2 id="faq">Najczęstsze pytania</h2>
+
+      <h3>Gdzie znajdę pełną treść zadania?</h3>
+      <p>W pliku PDF podlinkowanym przy nazwie zadania. Pliki otwierają się bezpośrednio w przeglądarce.</p>
+
+      <h3>Ile zadań było w edycji 2025?</h3>
+      <p>Piętnaście. Wszystkie są dostępne na tej stronie.</p>
+
+      <h3>Kiedy i gdzie odbywa się Hacknation?</h3>
+      <p>Co roku w listopadzie, w Bydgoszczy.</p>
+    </section>
+
+    <footer>
+      <p>Hacknation 2025 · zadania hackatonu rządowego · Bydgoszcz</p>
+    </footer>
   </main>
 
   <script>
@@ -61,11 +187,11 @@
       var mq = window.matchMedia('(prefers-color-scheme: dark)');
 
       function apply(theme) {
-        root.setAttribute('data-bs-theme', theme);
+        root.setAttribute('data-theme', theme);
         sw.checked = theme === 'dark';
       }
 
-      sw.checked = root.getAttribute('data-bs-theme') === 'dark';
+      sw.checked = root.getAttribute('data-theme') === 'dark';
 
       // Ręczny wybór wygrywa z systemem
       sw.addEventListener('change', function () {

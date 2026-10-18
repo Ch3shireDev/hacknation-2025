@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ch3shiredev.github.io/hacknation-2025/sitemap.xml
